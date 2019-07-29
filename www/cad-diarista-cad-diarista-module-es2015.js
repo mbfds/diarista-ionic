@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\r\n  <ion-toolbar><ion-buttons slot=\"start\">\r\n    <ion-button href=\"./home\"> <ion-icon\r\n    name=\"arrow-back\"></ion-icon></ion-button>\r\n    </ion-buttons>\r\n    <ion-title>Cadastro de Fornecedores</ion-title>\r\n\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n<ion-item>\r\n  <ion-label position=\"floating\">Digite aqui seu nome:</ion-label>\r\n  <ion-input [(ngModel)]=\"nomeFornecedor\"></ion-input>\r\n</ion-item>\r\n\r\n<ion-item>\r\n  <ion-label position=\"floating\">Telefone:</ion-label>\r\n  <ion-input [(ngModel)]=\"telefoneFornecedor\"></ion-input>\r\n</ion-item>\r\n<ion-item>\r\n  <ion-label position=\"floating\">Celular:</ion-label>\r\n  <ion-input [(ngModel)]=\"celularFornecedor\"></ion-input>\r\n</ion-item>\r\n<ion-item>\r\n  <ion-label position=\"floating\">Experiência:</ion-label>\r\n  <ion-input [(ngModel)]=\"experienciaFornecedor\"></ion-input>\r\n</ion-item>\r\n<ion-item>\r\n    <ion-label position=\"floating\">Digite Seu cep:</ion-label>\r\n    <ion-input [(ngModel)]=\"cepFornecedor\"></ion-input>\r\n  </ion-item>\r\n\r\n<ion-item>\r\n  <ion-label >Lorgadouro:</ion-label>              \r\n  <ion-input type=\"text\" *ngIf=\"endereco.logradouro\">{{endereco.logradouro}}</ion-input>\r\n</ion-item>\r\n\r\n<ion-item>\r\n  <ion-label >Complemento:</ion-label>\r\n  <ion-input type=\"text\" *ngIf=\"endereco.complemento\">{{endereco.complemento}}</ion-input>\r\n</ion-item>\r\n\r\n<ion-item>\r\n  <ion-label >Bairro:</ion-label>\r\n  <ion-input type=\"text\" *ngIf=\"endereco.bairro\">{{endereco.bairro}}</ion-input>\r\n</ion-item>\r\n\r\n<ion-item>\r\n  <ion-label >Cidade:</ion-label>\r\n  <ion-input type=\"text\" *ngIf=\"endereco.localidade\">{{endereco.localidade}}</ion-input>\r\n</ion-item>\r\n\r\n<ion-item>\r\n  <ion-label >UF:</ion-label>\r\n  <ion-input type=\"text\" *ngIf=\"endereco.uf\">{{endereco.uf}}</ion-input>\r\n</ion-item>\r\n<ion-list>\r\n  <ion-item *ngFor=\"let item of items\">\r\n    <ion-thumbnail slot=\"start\">\r\n      <ion-img [src]=\"arquivo\"></ion-img>\r\n    </ion-thumbnail>\r\n    <ion-label>{{item.text}}</ion-label>\r\n  </ion-item>\r\n</ion-list>\r\n<ion-button (click)=\"takePhoto()\" >Tirar Foto</ion-button><br>\r\n\r\n<ion-button (click)=\"verGaleria()\" >Ver Galeria</ion-button><br>\r\n<ion-button (click)=\"upload()\" >Upload</ion-button><br>\r\n<ion-img [src]=\"this.img\"></ion-img>\r\n\r\n\r\n<ion-button (click)=\"setDiarista()\" shape=\"round\" >Cadastrar como um Fornecedor </ion-button>\r\n\r\n\r\n<ion-button color=\"light\" shape=\"round\" href=\"./list-diarista\">Clique Aqui para Listar Fonecedores</ion-button>\r\n<ion-button color=\"light\" shape=\"round\" href=\"./home\">Clique Aqui para Página Inicial</ion-button>\r\n\r\n\r\n</ion-content>\r\n"
+module.exports = "<ion-header>\r\n  <ion-toolbar><ion-buttons slot=\"start\">\r\n    <ion-button href=\"./home\"> <ion-icon\r\n    name=\"arrow-back\"></ion-icon></ion-button>\r\n    </ion-buttons>\r\n    <ion-title>Cadastro de Fornecedores</ion-title>\r\n\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n<ion-item>\r\n  <ion-label position=\"floating\">Digite aqui seu nome:</ion-label>\r\n  <ion-input [(ngModel)]=\"nomeFornecedor\"></ion-input>\r\n</ion-item>\r\n\r\n<ion-item>\r\n  <ion-label position=\"floating\">Telefone:</ion-label>\r\n  <ion-input [(ngModel)]=\"telefoneFornecedor\"></ion-input>\r\n</ion-item>\r\n<ion-item>\r\n  <ion-label position=\"floating\">Celular:</ion-label>\r\n  <ion-input [(ngModel)]=\"celularFornecedor\"></ion-input>\r\n</ion-item>\r\n<ion-item>\r\n  <ion-label position=\"floating\">Experiência:</ion-label>\r\n  <ion-input [(ngModel)]=\"experienciaFornecedor\"></ion-input>\r\n</ion-item>\r\n<ion-item>\r\n    <ion-label position=\"floating\">Digite Seu cep:</ion-label>\r\n    <ion-input [(ngModel)]=\"cepFornecedor\"></ion-input>\r\n  </ion-item>\r\n\r\n<ion-item>\r\n  <ion-label >Lorgadouro:</ion-label>              \r\n  <ion-input type=\"text\" *ngIf=\"endereco.logradouro\">{{endereco.logradouro}}</ion-input>\r\n</ion-item>\r\n\r\n<ion-item>\r\n  <ion-label >Complemento:</ion-label>\r\n  <ion-input type=\"text\" *ngIf=\"endereco.complemento\">{{endereco.complemento}}</ion-input>\r\n</ion-item>\r\n\r\n<ion-item>\r\n  <ion-label >Bairro:</ion-label>\r\n  <ion-input type=\"text\" *ngIf=\"endereco.bairro\">{{endereco.bairro}}</ion-input>\r\n</ion-item>\r\n\r\n<ion-item>\r\n  <ion-label >Cidade:</ion-label>\r\n  <ion-input type=\"text\" *ngIf=\"endereco.localidade\">{{endereco.localidade}}</ion-input>\r\n</ion-item>\r\n\r\n<ion-item>\r\n  <ion-label >UF:</ion-label>\r\n  <ion-input type=\"text\" *ngIf=\"endereco.uf\">{{endereco.uf}}</ion-input>\r\n</ion-item>\r\n<ion-list>\r\n  <ion-item *ngFor=\"let item of items\">\r\n    <ion-thumbnail slot=\"start\">\r\n      <ion-img [src]=\"arquivo\"></ion-img>\r\n    </ion-thumbnail>\r\n    <ion-label>{{item.text}}</ion-label>\r\n  </ion-item>\r\n</ion-list>\r\n<ion-button (click)=\"takePhoto()\" >Tirar Foto</ion-button><br>\r\n\r\n<ion-button (click)=\"verGaleria()\" >Ver Galeria</ion-button><br>\r\n<ion-button (click)=\"upload()\" >Upload</ion-button><br>\r\n<ion-img [src]=\"img\"></ion-img>\r\n\r\n\r\n<ion-button (click)=\"setDiarista()\" shape=\"round\" >Cadastrar como um Fornecedor </ion-button>\r\n\r\n\r\n<ion-button color=\"light\" shape=\"round\" href=\"./list-diarista\">Clique Aqui para Listar Fonecedores</ion-button>\r\n<ion-button color=\"light\" shape=\"round\" href=\"./home\">Clique Aqui para Página Inicial</ion-button>\r\n\r\n\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -102,7 +102,6 @@ let CadDiaristaPage = class CadDiaristaPage {
         this.camera = camera;
         this.http = http;
         this.confirma = {};
-        this.img = {};
         this.endereco = {};
         this.photo = '';
     }
@@ -119,9 +118,8 @@ let CadDiaristaPage = class CadDiaristaPage {
         this.camera.getPicture(options).then((imageData) => {
             // imageData is either a base64 encoded string or a file URI
             // If it's base64 (DATA_URL):
-            this.img = imageData;
-            let arquivo = 'data:image/jpeg;base64,' + imageData;
-            console.log(arquivo);
+            this.arquivo = 'data:image/jpeg;base64,' + imageData;
+            console.log(this.arquivo);
         }, (err) => {
             // Handle error
         });
@@ -137,8 +135,8 @@ let CadDiaristaPage = class CadDiaristaPage {
             // imageData is either a base64 encoded string or a file URI
             // If it's base64 (DATA_URL):
             this.img = imageData;
-            let arquivo = 'data:image/jpeg;base64,' + imageData;
-            console.log(arquivo);
+            this.arquivo = 'data:image/jpeg;base64,' + imageData;
+            console.log(this.arquivo);
         }, (err) => {
             // Handle error
         });

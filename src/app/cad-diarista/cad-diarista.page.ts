@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 })
 export class CadDiaristaPage implements OnInit {
   public confirma : any = { };
-  public img : any = { };
+  public img : any;
   public nomeFornecedor : string ;
   public cepFornecedor : string ;
   public telefoneFornecedor : string ;
@@ -46,10 +46,9 @@ export class CadDiaristaPage implements OnInit {
   this.camera.getPicture(options).then((imageData) => {
    // imageData is either a base64 encoded string or a file URI
    // If it's base64 (DATA_URL):
-   this.img = imageData;
 
-   let arquivo = 'data:image/jpeg;base64,' + imageData;
-   console.log(arquivo);
+   this.arquivo = 'data:image/jpeg;base64,' + imageData;
+   console.log(this.arquivo);
   }, (err) => {
    // Handle error
   });
@@ -67,9 +66,9 @@ export class CadDiaristaPage implements OnInit {
   this.camera.getPicture(options).then((imageData) => {
    // imageData is either a base64 encoded string or a file URI
    // If it's base64 (DATA_URL):
-   this.img = imageData;
-   let arquivo = 'data:image/jpeg;base64,' + imageData;
-   console.log(arquivo);
+   this.img=imageData;
+   this.arquivo = 'data:image/jpeg;base64,' + imageData;
+   console.log(this.arquivo);
   }, (err) => {
    // Handle error
   });}
