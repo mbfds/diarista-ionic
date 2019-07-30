@@ -56,19 +56,12 @@
   <ion-label >UF:</ion-label>
   <ion-input type="text" *ngIf="endereco.uf">{{endereco.uf}}</ion-input>
 </ion-item>
-<ion-list>
-  <ion-item *ngFor="let item of items">
-    <ion-thumbnail slot="start">
-      <ion-img [src]="arquivo"></ion-img>
-    </ion-thumbnail>
-    <ion-label>{{item.text}}</ion-label>
-  </ion-item>
-</ion-list>
+
 <ion-button (click)="takePhoto()" >Tirar Foto</ion-button><br>
 
 <ion-button (click)="verGaleria()" >Ver Galeria</ion-button><br>
 <ion-button (click)="upload()" >Upload</ion-button><br>
-<ion-img [src]="img"></ion-img>
+<ion-img src="{{arquivo}}"></ion-img>
 
 
 <ion-button (click)="setDiarista()" shape="round" >Cadastrar como um Fornecedor </ion-button>
