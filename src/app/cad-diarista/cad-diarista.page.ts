@@ -4,7 +4,6 @@ import { AlertController } from '@ionic/angular';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ViacepService } from '../viacep.service';
 import { Http } from '@angular/http';
-import { HttpClient } from 'selenium-webdriver/http';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -85,7 +84,7 @@ export class CadDiaristaPage implements OnInit {
           console.log('gravou');
           this.teste('Parabéns!','Cadastro Realizado Sucesso','<br>Siga as dicas no email para completar seu cadastro');
         }else{
-          console.log('Não foi possível cadastrar','Algum erro ao lado do servidor','Nós desculpe tente mais tarde!');
+          this.teste('Não foi possível cadastrar','Algum erro ao lado do servidor','Nós desculpe tente mais tarde!');
 
         }
 
@@ -113,14 +112,14 @@ export class CadDiaristaPage implements OnInit {
         this.endereco= JSON.parse(response._body);
         console.log(this.endereco);
       },error=>{
-        console.log("Erro ao busca: "+error);
+        this.teste('Não foi possível localizar o cep','Por favor tente Novamente','Insira um CEP Válido!');
       }
     );
   }
   upload(){
-    let url="http://marceloflorentino.000webhostapp.com/diarista/index.php/upload/setImagem";
+    let url="http://marceloflorentino.000webhostapp.com/diarista/index.php/fornecedor/setImagem";
     let postData = new FormData();
-    postData.append("file",this.arquivo);
+    postData.append("img",this.arquivo);
     let data:Observable<any>=this.http.post(url,postData);
     data.subscribe((result)=>{
       console.log(result);

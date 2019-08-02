@@ -57,18 +57,17 @@
   <ion-input type="text" *ngIf="endereco.uf">{{endereco.uf}}</ion-input>
 </ion-item>
 
-<ion-button (click)="takePhoto()" >Tirar Foto</ion-button><br>
+<ion-button (click)="takePhoto()" >Tirar Foto<ion-icon name="camera"></ion-icon></ion-button><br>
 
-<ion-button (click)="verGaleria()" >Ver Galeria</ion-button><br>
-<ion-button (click)="upload()" >Upload</ion-button><br>
-<ion-img src="{{arquivo}}"></ion-img>
+<ion-button (click)="verGaleria()" >Ver Galeria<ion-icon name="images"></ion-icon></ion-button><br>
+<ion-button (click)="upload()" >Upload<ion-icon name="cloud-upload"></ion-icon></ion-button><br>
 
 
 <ion-button (click)="setDiarista()" shape="round" >Cadastrar como um Fornecedor </ion-button>
 
 
-<ion-button color="light" shape="round" href="./list-diarista">Clique Aqui para Listar Fonecedores</ion-button>
-<ion-button color="light" shape="round" href="./home">Clique Aqui para Página Inicial</ion-button>
+<ion-button color="light" shape="round" href="./list-diarista">Clique Aqui para Listar Fonecedores<ion-icon name="cloud-upload"></ion-icon></ion-button>
+<ion-button color="light" shape="round" href="./home">Clique Aqui para Página Inicial<ion-icon name="home"></ion-icon></ion-button>
 
 
 </ion-content>

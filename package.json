@@ -82,8 +82,6 @@
       "cordova-sqlite-storage": {},
       "cordova-plugin-filepath": {}
     },
-    "platforms": [
-      "android"
-    ]
+    "platforms": []
   }
 }
