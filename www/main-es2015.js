@@ -707,11 +707,11 @@ let DiaristaService = class DiaristaService {
     getDiarista() {
         return this.http.get(this.caminho + this.diarista);
     }
-    setDiarista(nomeFornecedor, telefoneFornecedor, celularFornecedor, cepFornecedor, experienciaFornecedor) {
-        return this.http.get(this.caminho + this.diaristas + "/" + nomeFornecedor + "/" + telefoneFornecedor + "/" + celularFornecedor + "/" + cepFornecedor + "/" + experienciaFornecedor);
+    setDiarista(nomeFornecedor, telefoneFornecedor, celularFornecedor, cepFornecedor, experienciaFornecedor, logradouroFornecedor, bairroFornecedor, localidadeFornecedor, ufFornecedor) {
+        return this.http.get(this.caminho + this.diaristas + "/" + nomeFornecedor + "/" + telefoneFornecedor + "/" + celularFornecedor + "/" + cepFornecedor + "/" + experienciaFornecedor + "/" + logradouroFornecedor + "/" + bairroFornecedor + "/" + localidadeFornecedor + "/" + ufFornecedor);
     }
-    setCliente(nomeCliente, telefoneCliente, celularCliente, cepCliente, numCasaCliente) {
-        return this.http.get(this.caminho + this.clientes + "/" + nomeCliente + "/" + telefoneCliente + "/" + celularCliente + "/" + cepCliente + "/" + numCasaCliente);
+    setCliente(nomeCliente, telefoneCliente, celularCliente, cepCliente, numCasaCliente, logradouroCliente, bairroCliente, localidadeCliente, ufCliente) {
+        return this.http.get(this.caminho + this.clientes + "/" + nomeCliente + "/" + telefoneCliente + "/" + celularCliente + "/" + cepCliente + "/" + numCasaCliente + "/" + logradouroCliente + "/" + bairroCliente + "/" + localidadeCliente + "/" + ufCliente);
     }
 };
 DiaristaService.ctorParameters = () => [

@@ -29,7 +29,7 @@
 </ion-item>
 <ion-item>
     <ion-label position="floating">Digite Seu cep:</ion-label>
-    <ion-input [(ngModel)]="cepFornecedor"></ion-input>
+    <ion-input [(ngModel)]="cepFornecedor" (focusout)="listaCep()"></ion-input>
   </ion-item>
 
 <ion-item>
@@ -57,16 +57,16 @@
   <ion-input type="text" *ngIf="endereco.uf">{{endereco.uf}}</ion-input>
 </ion-item>
 
-<ion-button (click)="takePhoto()" >Tirar Foto<ion-icon name="camera"></ion-icon></ion-button><br>
+<ion-button (click)="takePhoto()" >Foto<ion-icon name="camera"></ion-icon></ion-button>
 
-<ion-button (click)="verGaleria()" >Ver Galeria<ion-icon name="images"></ion-icon></ion-button><br>
-<ion-button (click)="upload()" >Upload<ion-icon name="cloud-upload"></ion-icon></ion-button><br>
-
-
-<ion-button (click)="setDiarista()" shape="round" >Cadastrar como um Fornecedor </ion-button>
+<ion-button (click)="verGaleria()" >Galeria<ion-icon name="images"></ion-icon></ion-button>
+<ion-button (click)="uploadImageData()" >Enviar Imagem<ion-icon name="cloud-upload"></ion-icon></ion-button><br>
 
 
-<ion-button color="light" shape="round" href="./list-diarista">Clique Aqui para Listar Fonecedores<ion-icon name="cloud-upload"></ion-icon></ion-button>
+<ion-button (click)="setDiarista()" shape="round" >Cadastrar como um Fornecedor<ion-icon name="create"></ion-icon> </ion-button>
+
+
+<ion-button color="light" shape="round" href="./list-diarista">Clique Aqui para Listar Fonecedores<ion-icon name="list-box"></ion-icon></ion-button>
 <ion-button color="light" shape="round" href="./home">Clique Aqui para Página Inicial<ion-icon name="home"></ion-icon></ion-button>
 
 

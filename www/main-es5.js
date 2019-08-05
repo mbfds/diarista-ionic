@@ -721,11 +721,11 @@ var DiaristaService = /** @class */ (function () {
     DiaristaService.prototype.getDiarista = function () {
         return this.http.get(this.caminho + this.diarista);
     };
-    DiaristaService.prototype.setDiarista = function (nomeFornecedor, telefoneFornecedor, celularFornecedor, cepFornecedor, experienciaFornecedor) {
-        return this.http.get(this.caminho + this.diaristas + "/" + nomeFornecedor + "/" + telefoneFornecedor + "/" + celularFornecedor + "/" + cepFornecedor + "/" + experienciaFornecedor);
+    DiaristaService.prototype.setDiarista = function (nomeFornecedor, telefoneFornecedor, celularFornecedor, cepFornecedor, experienciaFornecedor, logradouroFornecedor, bairroFornecedor, localidadeFornecedor, ufFornecedor) {
+        return this.http.get(this.caminho + this.diaristas + "/" + nomeFornecedor + "/" + telefoneFornecedor + "/" + celularFornecedor + "/" + cepFornecedor + "/" + experienciaFornecedor + "/" + logradouroFornecedor + "/" + bairroFornecedor + "/" + localidadeFornecedor + "/" + ufFornecedor);
     };
-    DiaristaService.prototype.setCliente = function (nomeCliente, telefoneCliente, celularCliente, cepCliente, numCasaCliente) {
-        return this.http.get(this.caminho + this.clientes + "/" + nomeCliente + "/" + telefoneCliente + "/" + celularCliente + "/" + cepCliente + "/" + numCasaCliente);
+    DiaristaService.prototype.setCliente = function (nomeCliente, telefoneCliente, celularCliente, cepCliente, numCasaCliente, logradouroCliente, bairroCliente, localidadeCliente, ufCliente) {
+        return this.http.get(this.caminho + this.clientes + "/" + nomeCliente + "/" + telefoneCliente + "/" + celularCliente + "/" + cepCliente + "/" + numCasaCliente + "/" + logradouroCliente + "/" + bairroCliente + "/" + localidadeCliente + "/" + ufCliente);
     };
     DiaristaService.ctorParameters = function () { return [
         { type: _angular_http__WEBPACK_IMPORTED_MODULE_2__["Http"] }

@@ -20,10 +20,11 @@ export class DiaristaService {
   getDiarista(){
     return this.http.get(this.caminho+this.diarista);
   }
-  setDiarista(nomeFornecedor : string ,telefoneFornecedor:string,celularFornecedor:string,cepFornecedor:string,experienciaFornecedor:string){
-    return this.http.get(this.caminho+this.diaristas+"/"+nomeFornecedor+"/"+telefoneFornecedor+"/"+celularFornecedor+"/"+cepFornecedor+"/"+experienciaFornecedor);
+  setDiarista(nomeFornecedor : string ,telefoneFornecedor:string,celularFornecedor:string,cepFornecedor:string,experienciaFornecedor:string,logradouroFornecedor:string,bairroFornecedor:string,localidadeFornecedor:string,ufFornecedor:string){
+    
+    return this.http.get(this.caminho+this.diaristas+"/"+nomeFornecedor+"/"+telefoneFornecedor+"/"+celularFornecedor+"/"+cepFornecedor+"/"+experienciaFornecedor+"/"+logradouroFornecedor+"/"+bairroFornecedor+"/"+localidadeFornecedor+"/"+ufFornecedor);
   }
-  setCliente(nomeCliente : string ,telefoneCliente:string,celularCliente:string,cepCliente:string,numCasaCliente:string){
-    return this.http.get(this.caminho+this.clientes+"/"+nomeCliente+"/"+telefoneCliente+"/"+celularCliente+"/"+cepCliente+"/"+numCasaCliente);
+  setCliente(nomeCliente : string ,telefoneCliente:string,celularCliente:string,cepCliente:string,numCasaCliente:string,logradouroCliente:string,bairroCliente:string,localidadeCliente:string,ufCliente:string){
+    return this.http.get(this.caminho+this.clientes+"/"+nomeCliente+"/"+telefoneCliente+"/"+celularCliente+"/"+cepCliente+"/"+numCasaCliente+"/"+logradouroCliente+"/"+bairroCliente+"/"+localidadeCliente+"/"+ufCliente);
   }
 }

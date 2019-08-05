@@ -5,6 +5,11 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ViacepService } from '../viacep.service';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { finalize } from 'rxjs/operators';
+import { ActionSheetController, ToastController, Platform, LoadingController } from '@ionic/angular';
+
+
 
 @Component({
   selector: 'app-cad-diarista',
@@ -13,7 +18,6 @@ import { Observable } from 'rxjs';
 })
 export class CadDiaristaPage implements OnInit {
   public confirma : any = { };
-  public img : any;
   public nomeFornecedor : string ;
   public cepFornecedor : string ;
   public telefoneFornecedor : string ;
@@ -24,14 +28,18 @@ export class CadDiaristaPage implements OnInit {
   public message:Text;
   public endereco : any = { };
   public arquivo:string;
+  
 
 
 
 
-  constructor(private DiaristaService:DiaristaService,public alertController: AlertController,private cepServico:ViacepService,private camera:Camera,private http:Http) { }
+  constructor(private DiaristaService:DiaristaService,public alertController: AlertController,private cepServico:ViacepService,private camera:Camera,private http:Http,private statusBar: StatusBar,public toastController: ToastController,public loadingController: LoadingController) { }
   photo: string = '';
 
   ngOnInit() {
+    this.statusBar.overlaysWebView(true);
+    this.statusBar.backgroundColorByHexString('#ffffff');
+
   }
   
    verGaleria(){
@@ -75,13 +83,12 @@ export class CadDiaristaPage implements OnInit {
     if(this.nomeFornecedor==null ||this.telefoneFornecedor==null||this.celularFornecedor==null ||this.cepFornecedor==null ||this.experienciaFornecedor==null  ){
       this.teste('Não foi possível cadastrar','Algum campo em branco','Preencha todos os Campos');
     }else{
-    this.DiaristaService.setDiarista(this.nomeFornecedor,this.telefoneFornecedor,this.celularFornecedor,this.cepFornecedor,this.experienciaFornecedor).subscribe(
+    this.DiaristaService.setDiarista(this.nomeFornecedor,this.telefoneFornecedor,this.celularFornecedor,this.cepFornecedor,this.experienciaFornecedor,this.endereco.logradouro,this.endereco.bairro,this.endereco.localidade,this.endereco.uf).subscribe(
       data=>{
         const response = data as any;
         this.confirma= JSON.parse(response._body);
         console.log(this.confirma);
         if(this.confirma==1){
-          console.log('gravou');
           this.teste('Parabéns!','Cadastro Realizado Sucesso','<br>Siga as dicas no email para completar seu cadastro');
         }else{
           this.teste('Não foi possível cadastrar','Algum erro ao lado do servidor','Nós desculpe tente mais tarde!');
@@ -116,13 +123,40 @@ export class CadDiaristaPage implements OnInit {
       }
     );
   }
-  upload(){
-    let url="http://marceloflorentino.000webhostapp.com/diarista/index.php/fornecedor/setImagem";
+
+
+
+
+  async uploadImageData() {
+    const loading = await this.loadingController.create({
+      message: 'Espere enviando imagem...',
+      spinner: 'crescent',
+    
+    });
+    await loading.present();
     let postData = new FormData();
     postData.append("img",this.arquivo);
-    let data:Observable<any>=this.http.post(url,postData);
-    data.subscribe((result)=>{
-      console.log(result);
-    });
-  } 
+ 
+    this.http.post("http://marceloflorentino.000webhostapp.com/diarista/index.php/fornecedor/setImagem", postData)
+        .pipe(
+            finalize(() => {
+                loading.dismiss();
+            })
+        )
+        .subscribe(res => {
+            if (res['success']) {
+                this.presentToast('Sua Imagem Foi enviada.')
+            } else {
+                this.presentToast('Sua Imagem Foi enviada.')
+            }
+        });
+}
+async presentToast(text) {
+  const toast = await this.toastController.create({
+      message: text,
+      position: 'bottom',
+      duration: 3000
+  });
+  toast.present();
+}
 }
